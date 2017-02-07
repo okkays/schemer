@@ -126,3 +126,10 @@
     (cond
       ((zero? m) 0)
       (else (plus n (mult (sub1 m) n))))))
+
+(define tup+
+  (lambda (tup1 tup2)
+    (cond
+      ((and (null? tup1) (null? tup2)) ())
+      (else (cons (plus (car tup1) (car tup2))
+              (tup+ (cdr tup1) (cdr tup2)))))))
