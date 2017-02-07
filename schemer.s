@@ -120,3 +120,9 @@
     (cond
       ((null? tup) 0)
       (else (plus (car tup) (addtup (cdr tup)))))))
+
+(define mult
+  (lambda (m n)
+    (cond
+      ((zero? m) 0)
+      (else (plus n (mult (sub1 m) n))))))
