@@ -134,3 +134,23 @@
       ((null? tup2) tup1)
       (else (cons (plus (car tup1) (car tup2))
               (tup+ (cdr tup1) (cdr tup2)))))))
+
+(define gt
+  (lambda (m n)
+    (cond
+      ((zero? m) #f)
+      ((zero? n) #t)
+      (else (gt (sub1 m) (sub1 n))))))
+
+(define lt
+  (lambda (m n)
+    (cond
+      ((eq? m n) #f)
+      ((gt n m) #t)
+      (else #f))))
+
+(define eq
+  (lambda (m n)
+    (cond
+      ((or (gt m n) (lt m n)) #f)
+      (else #t))))
