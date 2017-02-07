@@ -114,3 +114,9 @@
       ((zero? m) n)
       ((zero? n) m)
       (else (minus (sub1 m) (sub1 n))))))
+
+(define addtup
+  (lambda (tup)
+    (cond
+      ((null? tup) 0)
+      (else (plus (car tup) (addtup (cdr tup)))))))
