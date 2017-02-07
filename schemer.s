@@ -94,3 +94,16 @@
       ((eq? (car lat) old) (cons new (multisubst new old (cdr lat))))
       (else (cons (car lat) (multisubst new old (cdr lat)))))))
 
+(define add1
+  (lambda (n)
+    (+ n 1)))
+
+(define sub1
+  (lambda (n)
+    (- n 1)))
+
+(define plus
+  (lambda (m n)
+    (cond
+      ((zero? m) n)
+      (else (plus (sub1 m) (add1 n))))))
