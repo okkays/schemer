@@ -107,3 +107,10 @@
     (cond
       ((zero? m) n)
       (else (plus (sub1 m) (add1 n))))))
+
+(define minus
+  (lambda (m n)
+    (cond
+      ((zero? m) n)
+      ((zero? n) m)
+      (else (minus (sub1 m) (sub1 n))))))
