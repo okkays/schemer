@@ -154,3 +154,9 @@
     (cond
       ((or (gt m n) (lt m n)) #f)
       (else #t))))
+
+(define pow
+  (lambda (m n)
+    (cond
+      ((zero? n) 1)
+      (else (mult m (pow m (sub1 n)))))))
