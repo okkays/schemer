@@ -170,3 +170,9 @@
     (cond
       ((null? lat) 0)
       (else (add1 (len (cdr lat)))))))
+
+(define pick
+  (lambda (i lat)
+    (cond
+      ((zero? (sub1 i)) (car lat))
+      (else (pick (sub1 i) (cdr lat))))))
