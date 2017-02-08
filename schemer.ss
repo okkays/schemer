@@ -160,3 +160,9 @@
     (cond
       ((zero? n) 1)
       (else (mult m (pow m (sub1 n)))))))
+
+(define len
+  (lambda (lat)
+    (cond
+      ((null? lat) 0)
+      (else (add1 (len (cdr lat)))))))
