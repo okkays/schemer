@@ -176,3 +176,10 @@
     (cond
       ((zero? (sub1 i)) (car lat))
       (else (pick (sub1 i) (cdr lat))))))
+
+(define rempick
+  (lambda (i lat)
+    (cond
+      ((null? lat) '())
+      ((zero? (sub1 i)) (cdr lat))
+      (else (cons (car lat) (rempick (sub1 i) (cdr lat)))))))
