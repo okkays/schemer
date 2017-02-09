@@ -183,3 +183,10 @@
       ((null? lat) '())
       ((zero? (sub1 i)) (cdr lat))
       (else (cons (car lat) (rempick (sub1 i) (cdr lat)))))))
+
+(define no-nums
+  (lambda (lat)
+    (cond
+      ((null? lat) '())
+      ((number? (car lat)) (no-nums (cdr lat)))
+      (else (cons (car lat) (no-nums (cdr lat)))))))
