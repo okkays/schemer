@@ -216,3 +216,10 @@
     (cond
       ((zero? (sub1 n)) #t)
       (else #f))))
+
+(define rempick
+  (lambda (i lat)
+    (cond
+      ((null? lat) '())
+      ((one? i) (cdr lat))
+      (else (cons (car lat) (rempick (sub1 i) (cdr lat)))))))
