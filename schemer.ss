@@ -197,3 +197,16 @@
       ((null? lat) '())
       ((number? (car lat)) (cons (car lat) (all-nums (cdr lat))))
       (else (all-nums (cdr lat))))))
+
+(define eqan?
+  (lambda (a b)
+    (cond
+      ((and (number? a) (number? b)) (eq a b))
+      (else (eq? a b)))))
+
+(define occur
+  (lambda (a lat)
+    (cond
+      ((null? lat) 0)
+      ((eqan? a (car lat)) (add1 (occur a (cdr lat))))
+      (else (occur a (cdr lat))))))
