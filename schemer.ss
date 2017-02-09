@@ -177,13 +177,6 @@
       ((zero? (sub1 i)) (car lat))
       (else (pick (sub1 i) (cdr lat))))))
 
-(define rempick
-  (lambda (i lat)
-    (cond
-      ((null? lat) '())
-      ((zero? (sub1 i)) (cdr lat))
-      (else (cons (car lat) (rempick (sub1 i) (cdr lat)))))))
-
 (define no-nums
   (lambda (lat)
     (cond
@@ -223,3 +216,13 @@
       ((null? lat) '())
       ((one? i) (cdr lat))
       (else (cons (car lat) (rempick (sub1 i) (cdr lat)))))))
+
+(define rember*
+  (lambda (a l)
+    (cond
+      ((null? l) '())
+      ((atom? (car l)) (cond
+                         ((eqan? (car l) a) (rember* a (cdr l)))
+                         (else (cons (car l) (rember* a (cdr l))))))
+      (else (cons (rember* a (car l)) (rember* a (cdr l)))))))
+
