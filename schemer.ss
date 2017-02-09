@@ -210,3 +210,9 @@
       ((null? lat) 0)
       ((eqan? a (car lat)) (add1 (occur a (cdr lat))))
       (else (occur a (cdr lat))))))
+
+(define one?
+  (lambda (n)
+    (cond
+      ((zero? (sub1 n)) #t)
+      (else #f))))
