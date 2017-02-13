@@ -290,3 +290,16 @@
       ((and (null? l1) (null? l2)) #t)
       ((or (null? l1) (null? l2)) #f)
       (else (and (equals? (car l1) (car l2)) (equals? (cdr l1) (cdr l2)))))))
+
+(define rembers
+  (lambda (s l)
+    (cond
+      ((null? l) '())
+      ((atom? (car l)) (cond
+                         ((equals? (car l) s) (cdr l))
+                         (else (cons (car l)
+                                     (rember s (cdr l))))))
+      (else (cond
+              ((equals? (car l) s) (cdr l))
+              (else (cons (car l) (rember s (cdr l)))))))))
+
