@@ -295,11 +295,6 @@
   (lambda (s l)
     (cond
       ((null? l) '())
-      ((atom? (car l)) (cond
-                         ((equals? (car l) s) (cdr l))
-                         (else (cons (car l)
-                                     (rember s (cdr l))))))
-      (else (cond
-              ((equals? (car l) s) (cdr l))
-              (else (cons (car l) (rember s (cdr l)))))))))
+      ((equals? (car l) s) (cdr l))
+      (else (cons (car l) (rember s (cdr l)))))))
 
