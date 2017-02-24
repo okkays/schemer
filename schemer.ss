@@ -298,3 +298,8 @@
       ((equals? (car l) s) (cdr l))
       (else (cons (car l) (rember s (cdr l)))))))
 
+(define numbered?
+  (lambda (aexp)
+    (cond
+      ((atom? aexp) (number? aexp))
+      (else (and (numbered? (car aexp)) (numbered? (car (cdr (cdr aexp)))))))))
